@@ -36,11 +36,11 @@ public class SpeakerListAdapter extends ArrayAdapter<String> {
         View rowView=inflater.inflate(R.layout.speaker_list_view, null,true);
 
         TextView nameView = (TextView) rowView.findViewById(R.id.speakerNameTextView);
-        ImageView imageView = (ImageView) rowView.findViewById(R.id.speakerImageView);
+        //ImageView imageView = (ImageView) rowView.findViewById(R.id.speakerImageView);
         TextView titleView = (TextView) rowView.findViewById(R.id.speakerTitleTextView);
 
         nameView.setText(speakerName[position]);
-        imageView.setImageResource(imgid[position]);
+        //imageView.setImageResource(imgid[position]);
         titleView.setText("Description "+speakerName[position]);
 
         return rowView;
