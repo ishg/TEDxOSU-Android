@@ -1,5 +1,6 @@
 package com.idc6jyc9yn36dqvzzoup;
 
+import android.content.Context;
 import android.support.v4.app.Fragment;
 import android.os.Bundle;
 import android.util.Log;
@@ -26,6 +27,8 @@ import java.util.List;
  * Created by ishmeet on 2/10/16.
  */
 public class SpeakersFragment extends Fragment {
+
+
 
     public SpeakersFragment() {
         // Required empty public constructor
@@ -56,7 +59,13 @@ public class SpeakersFragment extends Fragment {
                 map.put("id",  String.valueOf(i));
                 map.put("name", e.getString("name"));
                 map.put("title", e.getString("title"));
-                map.put("picture", e.getString("picture"));
+
+                System.out.println(e.getString("picture"));
+                //int j = getResources().getIdentifier("R.drawable." + e.getString("picture"), "drawable", this.getContext().getPackageName());
+                //System.out.println(Integer.toString(j));
+                map.put("picture", "@drawable/"+ e.getString("picture")+".png");
+
+
                 map.put("lines", e.getString("lines"));
                 speakerList.add(map);
             }
@@ -64,8 +73,8 @@ public class SpeakersFragment extends Fragment {
             e.printStackTrace();
         }
 
-        String[] from = new String[]{"name", "title"};
-        int[] to = new int[] {R.id.speakerNameTextView, R.id.speakerTitleTextView};
+        String[] from = new String[]{"name", "title", "picture"};
+        int[] to = new int[] {R.id.speakerNameTextView, R.id.speakerTitleTextView, R.id.speakerImageView};
 
         ListAdapter adapter = new SimpleAdapter(this.getContext(), speakerList , R.layout.speaker_list_view, from, to);
 
@@ -74,7 +83,10 @@ public class SpeakersFragment extends Fragment {
         ListView listView = (ListView) rootView.findViewById(R.id.listview_speakers);
         listView.setAdapter(adapter);
 
+
+
         // Inflate the layout for this fragment
         return rootView;
     }
+
 }

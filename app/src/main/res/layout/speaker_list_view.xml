@@ -10,13 +10,14 @@
         android:layout_gravity="center"
         android:layout_width="100dp"
         android:layout_height="100dp"
-        android:src="@android:drawable/ic_delete" />
+        android:src="@drawable/abd" />
 
     <LinearLayout
         android:orientation="vertical"
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
-        android:paddingTop="10dp">
+        android:paddingTop="10dp"
+        android:paddingLeft="10dp">
 
         <TextView
             android:layout_width="wrap_content"
