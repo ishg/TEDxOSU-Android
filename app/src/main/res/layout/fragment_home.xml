@@ -1,77 +1,193 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:stretchColumns="1">
+    android:layout_height="wrap_content"
+    android:id="@+id/scrollView" >
 
-    <TableRow>
-        <TextView
-            android:layout_column="1"
-            android:text="Open..."
-            android:padding="3dip" />
-        <TextView
-            android:text="Ctrl-O"
-            android:gravity="right"
-            android:padding="3dip" />
-    </TableRow>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior"
+        tools:context="com.idc6jyc9yn36dqvzzoup.SpeakerDetailActivity"
+        tools:showIn="@layout/activity_speaker_detail">
 
-    <TableRow>
-        <TextView
-            android:layout_column="1"
-            android:text="Save..."
-            android:padding="3dip" />
-        <TextView
-            android:text="Ctrl-S"
-            android:gravity="right"
-            android:padding="3dip" />
-    </TableRow>
+        <ImageView
+            android:layout_width="fill_parent"
+            android:src="@drawable/banner_white"
+            android:layout_height="wrap_content"
+            android:adjustViewBounds="true"
+            android:id="@+id/homeBannerImage"/>
 
-    <TableRow>
         <TextView
-            android:layout_column="1"
-            android:text="Save As..."
-            android:padding="3dip" />
-        <TextView
-            android:text="Ctrl-Shift-S"
-            android:gravity="right"
-            android:padding="3dip" />
-    </TableRow>
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:text="Headline"
+            android:layout_below="@id/homeBannerImage"
+            android:id="@+id/homeHeadlineText"
+            android:layout_centerHorizontal="true"
+            android:paddingTop="10dp"
+            android:paddingLeft="@dimen/activity_horizontal_margin"
+            android:paddingRight="@dimen/activity_horizontal_margin"/>
 
-    <View
-        android:layout_height="2dip"
-        android:background="#FF909090" />
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_centerHorizontal="true"
+            android:layout_below="@id/homeHeadlineText"
+            android:paddingLeft="@dimen/activity_horizontal_margin"
+            android:paddingRight="@dimen/activity_horizontal_margin"
+            android:id="@+id/infoStack">
 
-    <TableRow>
-        <TextView
-            android:text="X"
-            android:padding="3dip" />
-        <TextView
-            android:text="Import..."
-            android:padding="3dip" />
-    </TableRow>
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
 
-    <TableRow>
-        <TextView
-            android:text="X"
-            android:padding="3dip" />
-        <TextView
-            android:text="Export..."
-            android:padding="3dip" />
-        <TextView
-            android:text="Ctrl-E"
-            android:gravity="right"
-            android:padding="3dip" />
-    </TableRow>
+                <ImageView
+                    android:layout_width="50dp"
+                    android:layout_height="80dp"
+                    android:paddingTop="20dp"
+                    android:paddingBottom="20dp"
+                    android:layout_alignParentLeft="true"
+                    android:src="@drawable/icon_location"/>
 
-    <View
-        android:layout_height="2dip"
-        android:background="#FF909090" />
+                <LinearLayout
+                    android:orientation="vertical"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:paddingLeft="10dp">
 
-    <TableRow>
-        <TextView
-            android:layout_column="1"
-            android:text="Quit"
-            android:padding="3dip" />
-    </TableRow>
-</TableLayout>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textAppearance="?android:attr/textAppearanceLarge"
+                        android:text="Large Text"
+                        android:id="@+id/locationLabelText"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textAppearance="?android:attr/textAppearanceMedium"
+                        android:text="Medium Text"
+                        android:id="@+id/locationDescText"/>
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <ImageView
+                    android:layout_width="50dp"
+                    android:layout_height="80dp"
+                    android:paddingTop="20dp"
+                    android:paddingBottom="20dp"
+                    android:src="@drawable/icon_clock"
+                    android:layout_alignParentLeft="true" />
+
+                <LinearLayout
+                    android:orientation="vertical"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:paddingLeft="10dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textAppearance="?android:attr/textAppearanceLarge"
+                        android:text="Large Text"
+                        android:id="@+id/timeLabelText"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textAppearance="?android:attr/textAppearanceMedium"
+                        android:text="Medium Text"
+                        android:id="@+id/timeDescText"/>
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            android:layout_below="@id/infoStack"
+            android:id="@+id/socialStack"
+            android:layout_marginTop="20dp">
+
+            <View
+                android:layout_width="0dp"
+                android:layout_height="1dp"
+                android:layout_weight="1" >
+            </View>
+            <ImageButton
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:background="@drawable/icon_earth"
+                android:id="@+id/buttonWebsite" />
+            <View
+                android:layout_width="0dp"
+                android:layout_height="1dp"
+                android:layout_weight="1" >
+            </View>
+            <ImageButton
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:background="@drawable/icon_facebook"
+                android:id="@+id/buttonFacebook" />
+            <View
+                android:layout_width="0dp"
+                android:layout_height="1dp"
+                android:layout_weight="1" >
+            </View>
+            <ImageButton
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:background="@drawable/icon_twitter"
+                android:id="@+id/buttonTwitter" />
+            <View
+                android:layout_width="0dp"
+                android:layout_height="1dp"
+                android:layout_weight="1" >
+            </View>
+            <ImageButton
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:background="@drawable/icon_instagram"
+                android:id="@+id/buttonInstagram" />
+            <View
+                android:layout_width="0dp"
+                android:layout_height="1dp"
+                android:layout_weight="1" >
+            </View>
+            <ImageButton
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:background="@drawable/icon_youtube"
+                android:id="@+id/buttonYoutube" />
+            <View
+                android:layout_width="0dp"
+                android:layout_height="1dp"
+                android:layout_weight="1" >
+            </View>
+
+        </LinearLayout>
+
+    </RelativeLayout>
+
+</ScrollView>
