@@ -1,12 +1,16 @@
 package com.idc6jyc9yn36dqvzzoup;
 
 import android.app.ProgressDialog;
+import android.content.Intent;
 import android.support.v4.app.Fragment;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.ListView;
+import android.widget.Toast;
+
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -61,6 +65,24 @@ public class SpeakersFragment extends Fragment {
         listView = (ListView) rootView.findViewById(R.id.listview_speakers);
         adapter = new CustomListAdapter(getActivity(), speakerList);
         listView.setAdapter(adapter);
+
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int position, long l) {
+                Speaker s = adapter.getItem(position);
+                String[] sd = new String[5];
+                sd[0] = s.getName();
+                sd[1] = s.getTitle();
+                sd[2] = s.getPicture();
+                sd[3] = s.getLines();
+                sd[4] = s.getSpeech();
+
+                Intent intent = new Intent(getActivity(), SpeakerDetailActivity.class);
+                intent.putExtra("speaker", sd);
+                startActivity(intent);
+            }
+        });
 
         // Inflate the layout for this fragment
 

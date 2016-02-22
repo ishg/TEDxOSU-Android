@@ -33,7 +33,7 @@ public class CustomListAdapter extends BaseAdapter {
     }
 
     @Override
-    public Object getItem(int location) {
+    public Speaker getItem(int location) {
         return speakers.get(location);
     }
 

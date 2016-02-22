@@ -5,4 +5,5 @@
     <string name="speakers">SPEAKERS</string>
     <string name="about">ABOUT</string>
     <string name="section_format">Hello World from section: %1$d</string>
+    <string name="title_activity_speaker_detail">SpeakerDetailActivity</string>
 </resources>

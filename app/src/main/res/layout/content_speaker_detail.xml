@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:id="@+id/scrollView" >
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    tools:context="com.idc6jyc9yn36dqvzzoup.SpeakerDetailActivity"
+    tools:showIn="@layout/activity_speaker_detail">
+
+        <com.android.volley.toolbox.NetworkImageView
+            android:layout_width="fill_parent"
+            android:id="@+id/speakerImage"
+            android:layout_height="wrap_content"
+            android:paddingTop="40dp"
+            android:adjustViewBounds="true" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text="Name"
+            android:layout_below="@id/speakerImage"
+            android:id="@+id/speakerName"
+            android:layout_centerHorizontal="true"
+            android:paddingTop="10dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:text="Title"
+            android:layout_below="@id/speakerName"
+            android:id="@+id/speakerTitle"
+            android:layout_centerHorizontal="true"
+            android:paddingTop="5dp"
+            android:textStyle="italic" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:text="Bio"
+            android:layout_below="@id/speakerTitle"
+            android:id="@+id/speakerBio"
+            android:paddingTop="5dp" />
+</RelativeLayout>
+
+</ScrollView>
+
+
