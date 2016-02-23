@@ -41,11 +41,22 @@ public class HomeFragment extends Fragment{
         ((TextView) rootView.findViewById(R.id.locationDescText)).setText(locationDesc);
         ((TextView) rootView.findViewById(R.id.timeLabelText)).setText(timeLabel);
         ((TextView) rootView.findViewById(R.id.timeDescText)).setText(timeDesc);
+        rootView.findViewById(R.id.locationLayout).setOnClickListener(new View.OnClickListener(){
+            public void onClick(View v){
+                try {
+                    context.getPackageManager().getPackageInfo("com.google.android.gms.maps", 0);
+                    intent =  new Intent(Intent.ACTION_VIEW, Uri.parse("comgooglemapsurl://www.google.com/maps/place/Mershon+Auditorium/@40.000683,-83.0093077,15z/data=!4m2!3m1!1s0x0:0x988ef425d5b7d27e"));
+                } catch (Exception e) {
+                    intent =  new Intent(Intent.ACTION_VIEW, Uri.parse("https://www.google.com/maps/place/Mershon+Auditorium/@40.000683,-83.0093077,15z/data=!4m2!3m1!1s0x0:0x988ef425d5b7d27e"));
+                }
+                startActivity(intent);
+            }
+        });
 
         rootView.findViewById(R.id.buttonWebsite).setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 // Do something in response to button click
-                intent =  new Intent(Intent.ACTION_VIEW, Uri.parse("http://tedx.osu.edu"));
+                intent = new Intent(Intent.ACTION_VIEW, Uri.parse("http://tedx.osu.edu"));
                 startActivity(intent);
 
             }
@@ -56,9 +67,9 @@ public class HomeFragment extends Fragment{
 
                 try {
                     context.getPackageManager().getPackageInfo("com.facebook.katana", 0);
-                    intent =  new Intent(Intent.ACTION_VIEW, Uri.parse("fb://facewebmodal/f?href=https://www.facebook.com/TEDxOhioStateU"));
+                    intent = new Intent(Intent.ACTION_VIEW, Uri.parse("fb://facewebmodal/f?href=https://www.facebook.com/TEDxOhioStateU"));
                 } catch (Exception e) {
-                    intent =  new Intent(Intent.ACTION_VIEW, Uri.parse("http://www.facebook.com/TEDxOhioStateU"));
+                    intent = new Intent(Intent.ACTION_VIEW, Uri.parse("http://www.facebook.com/TEDxOhioStateU"));
                 }
                 startActivity(intent);
             }
@@ -68,9 +79,9 @@ public class HomeFragment extends Fragment{
                 // Do something in response to button click
                 try {
                     context.getPackageManager().getPackageInfo("com.android.twitter", 0);
-                    intent =  new Intent(Intent.ACTION_VIEW, Uri.parse("twitter://user?screen_name=TEDxOhioStateU"));
+                    intent = new Intent(Intent.ACTION_VIEW, Uri.parse("twitter://user?screen_name=TEDxOhioStateU"));
                 } catch (Exception e) {
-                    intent =  new Intent(Intent.ACTION_VIEW, Uri.parse("http://twitter.com/TEDxOhioStateU"));
+                    intent = new Intent(Intent.ACTION_VIEW, Uri.parse("http://twitter.com/TEDxOhioStateU"));
                 }
                 startActivity(intent);
             }
@@ -80,9 +91,9 @@ public class HomeFragment extends Fragment{
                 // Do something in response to button click
                 try {
                     context.getPackageManager().getPackageInfo("com.android.instagram", 0);
-                    intent =  new Intent(Intent.ACTION_VIEW, Uri.parse("instagram://user?username=tedxohiostateu"));
+                    intent = new Intent(Intent.ACTION_VIEW, Uri.parse("instagram://user?username=tedxohiostateu"));
                 } catch (Exception e) {
-                    intent =  new Intent(Intent.ACTION_VIEW, Uri.parse("http://instagram.com/tedxohiostateu"));
+                    intent = new Intent(Intent.ACTION_VIEW, Uri.parse("http://instagram.com/tedxohiostateu"));
                 }
                 startActivity(intent);
             }
@@ -90,7 +101,7 @@ public class HomeFragment extends Fragment{
         rootView.findViewById(R.id.buttonYoutube).setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 // Do something in response to button click
-                intent =  new Intent(Intent.ACTION_VIEW, Uri.parse("https://www.youtube.com/watch?v=XSvhWs2M9JI&list=PLB18FCCC5AD700BFB"));
+                intent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://www.youtube.com/watch?v=XSvhWs2M9JI&list=PLB18FCCC5AD700BFB"));
                 startActivity(intent);
             }
         });

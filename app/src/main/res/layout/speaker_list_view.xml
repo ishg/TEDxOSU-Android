@@ -16,14 +16,18 @@
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
         android:paddingTop="10dp"
-        android:paddingLeft="10dp">
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp">
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textAppearance="?android:attr/textAppearanceLarge"
             android:text="Large Text"
-            android:id="@+id/speakerNameTextView" />
+            android:id="@+id/speakerNameTextView"
+            android:scrollHorizontally="true"
+            android:ellipsize="end"
+            android:maxLines="1" />
 
         <TextView
             xmlns:android="http://schemas.android.com/apk/res/android"
@@ -31,7 +35,10 @@
             android:layout_height="wrap_content"
             android:textAppearance="?android:attr/textAppearanceMedium"
             android:text="Medium Text"
-            android:id="@+id/speakerTitleTextView" />
+            android:id="@+id/speakerTitleTextView"
+            android:scrollHorizontally="true"
+            android:ellipsize="end"
+            android:maxLines="1" />
 
     </LinearLayout>
 
