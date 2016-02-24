@@ -5,9 +5,11 @@
     android:layout_height="match_parent"
     android:id="@+id/scrollView" >
 
-    <RelativeLayout
+    <LinearLayout
+        android:orientation="vertical"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:paddingBottom="80dp">
 
         <ImageView
             android:layout_width="fill_parent"
@@ -21,7 +23,7 @@
             android:orientation="vertical"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="100dp"
+            android:layout_marginBottom="0dp"
             android:paddingLeft="@dimen/activity_horizontal_margin"
             android:paddingRight="@dimen/activity_horizontal_margin"
             android:layout_below="@id/aboutBannerImage">
@@ -94,6 +96,15 @@
                 android:text="Message"
                 android:id="@+id/aboutTEDText"/>
 
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Learn More"
+                android:id="@+id/aboutTedLink"
+                android:textColor="@color/colorPrimary"
+                android:gravity="center"
+                />
+
             <!-- ABOUT TEDx -->
 
             <TextView
@@ -116,6 +127,15 @@
                 android:text="Message"
                 android:id="@+id/aboutTedxText"/>
 
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Learn More"
+                android:id="@+id/aboutTedxLink"
+                android:textColor="@color/colorPrimary"
+                android:gravity="center"
+                />
+
             <!-- OUR TEAM -->
 
             <TextView
@@ -131,12 +151,39 @@
                 android:textColor="#ffffff"/>
 
             <ListView
-                android:layout_below="@id/aboutLinearLayout"
                 android:layout_width="match_parent"
-                android:layout_height="2450dp"
+                android:layout_height="2350dp"
                 android:id="@+id/listview_team">
 
             </ListView>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Application Developer:"
+                android:textStyle="italic"
+                android:textSize="18sp"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Ishmeet Grewal"
+                android:paddingLeft="5dp"
+                android:id="@+id/appDeveloperName"
+                android:textColor="@color/colorPrimary"
+                android:textStyle="italic"
+                android:textSize="18sp"
+                 />
+
+
 
         </LinearLayout>
 
@@ -147,7 +194,7 @@
 
 
 
-    </RelativeLayout>
+    </LinearLayout>
 
 
 </ScrollView>

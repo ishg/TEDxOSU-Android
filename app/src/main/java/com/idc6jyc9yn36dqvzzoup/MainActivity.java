@@ -40,6 +40,7 @@ public class MainActivity extends AppCompatActivity {
         ViewPagerAdapter adapter = new ViewPagerAdapter(getSupportFragmentManager());
         adapter.addFragment(new HomeFragment(), "HOME");
         adapter.addFragment(new SpeakersFragment(), "SPEAKERS");
+        adapter.addFragment(new ScheduleFragment(), "SCHEDULE");
         adapter.addFragment(new AboutFragment(), "ABOUT");
         viewPager.setAdapter(adapter);
     }
