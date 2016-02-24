@@ -1,15 +1,153 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
+
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:id="@+id/scrollView" >
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/about"
-        android:textSize="40dp"
-        android:textStyle="bold"
-        android:layout_centerInParent="true"/>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
 
-</RelativeLayout>
+        <ImageView
+            android:layout_width="fill_parent"
+            android:src="@drawable/logo_black"
+            android:layout_height="wrap_content"
+            android:adjustViewBounds="true"
+            android:id="@+id/aboutBannerImage"/>
+
+        <LinearLayout
+            android:id="@+id/aboutLinearLayout"
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="100dp"
+            android:paddingLeft="@dimen/activity_horizontal_margin"
+            android:paddingRight="@dimen/activity_horizontal_margin"
+            android:layout_below="@id/aboutBannerImage">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:layout_marginTop="10dp"
+                android:text="Headline"
+                android:id="@+id/aboutHeadlineText"
+                android:layout_gravity="center_horizontal" />
+
+            <!-- CURATOR MESSAGE -->
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:layout_marginTop="10dp"
+                android:text="Message from the Curator"
+                android:id="@+id/curatorMessageHeader"
+                android:layout_gravity="center_horizontal"
+                android:textAlignment="center"
+                android:background="#212121"
+                android:textColor="#ffffff" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:layout_marginTop="10dp"
+                android:text="Message"
+                android:id="@+id/curatorMessageText"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:layout_marginTop="10dp"
+                android:text="Stephany Tabet,"
+                android:id="@+id/curatorName"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:text="Curator"
+                android:id="@+id/curatorTitle"/>
+
+            <!-- ABOUT TED -->
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:layout_marginTop="10dp"
+                android:text="About TED"
+                android:id="@+id/aboutTEDHeader"
+                android:layout_gravity="center_horizontal"
+                android:textAlignment="center"
+                android:background="#212121"
+                android:textColor="#ffffff"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:layout_marginTop="10dp"
+                android:text="Message"
+                android:id="@+id/aboutTEDText"/>
+
+            <!-- ABOUT TEDx -->
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:layout_marginTop="10dp"
+                android:text="About TEDx"
+                android:id="@+id/aboutTEDxHeader"
+                android:layout_gravity="center_horizontal"
+                android:textAlignment="center"
+                android:background="#212121"
+                android:textColor="#ffffff"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:layout_marginTop="10dp"
+                android:text="Message"
+                android:id="@+id/aboutTedxText"/>
+
+            <!-- OUR TEAM -->
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:layout_marginTop="10dp"
+                android:text="Our Team"
+                android:id="@+id/ourTeamHeader"
+                android:layout_gravity="center_horizontal"
+                android:textAlignment="center"
+                android:background="#212121"
+                android:textColor="#ffffff"/>
+
+            <ListView
+                android:layout_below="@id/aboutLinearLayout"
+                android:layout_width="match_parent"
+                android:layout_height="2450dp"
+                android:id="@+id/listview_team">
+
+            </ListView>
+
+        </LinearLayout>
+
+
+
+
+
+
+
+
+    </RelativeLayout>
+
+
+</ScrollView>

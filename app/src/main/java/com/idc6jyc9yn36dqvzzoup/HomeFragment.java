@@ -36,11 +36,16 @@ public class HomeFragment extends Fragment{
         // Inflate the layout for this fragment
         View rootView =  inflater.inflate(R.layout.fragment_home, container, false);
 
+        // Set the text for all the labels
+
         ((TextView) rootView.findViewById(R.id.homeHeadlineText)).setText(headline);
         ((TextView) rootView.findViewById(R.id.locationLabelText)).setText(locationLabel);
         ((TextView) rootView.findViewById(R.id.locationDescText)).setText(locationDesc);
         ((TextView) rootView.findViewById(R.id.timeLabelText)).setText(timeLabel);
         ((TextView) rootView.findViewById(R.id.timeDescText)).setText(timeDesc);
+
+        // Set Onclick Listeners for the Social Buttons and Google Maps
+
         rootView.findViewById(R.id.locationLayout).setOnClickListener(new View.OnClickListener(){
             public void onClick(View v){
                 try {
