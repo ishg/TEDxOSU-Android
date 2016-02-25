@@ -32,9 +32,9 @@ public class ScheduleFragment extends Fragment {
     };
 
     Speaker[] session1, session2, session3;
-    int[] s1 = {};
-    int[] s2 = {};
-    int[] s3 = {};
+    int[] s1 = {16,7, 4, 1, 12,17,9};
+    int[] s2 = {6, 11, 0, 13, 10};
+    int[] s3 = {15, 5, 8, 3, 14, 2};
 
     JSONObject jsonObject;
     private List<Speaker> speakerList = new ArrayList<Speaker>();
@@ -70,29 +70,35 @@ public class ScheduleFragment extends Fragment {
             e.printStackTrace();
         }
 
+        Speaker s;
+
         //Section 1
         mAdapter.addSectionHeaderItem(sectionHeaders[0][1], sectionHeaders[0][0]);
         mAdapter.addSectionHeaderItem(sectionHeaders[1][1], sectionHeaders[1][0]);
         for (int i=0; i < s1.length; i++){
-            Speaker s = speakerList.get(s1[i]);
+            s = speakerList.get(s1[i]);
+            mAdapter.addItem(s.getSpeech(), s.getPicture());
         }
 
         //Section 2
         mAdapter.addSectionHeaderItem(sectionHeaders[2][1], sectionHeaders[2][0]);
         mAdapter.addSectionHeaderItem(sectionHeaders[3][1], sectionHeaders[3][0]);
         for (int i=0; i < s2.length; i++){
-            Speaker s = speakerList.get(s2[i]);
+            s = speakerList.get(s2[i]);
+            mAdapter.addItem(s.getSpeech(), s.getPicture());
         }
 
         //Section 3
         mAdapter.addSectionHeaderItem(sectionHeaders[4][1], sectionHeaders[4][0]);
         mAdapter.addSectionHeaderItem(sectionHeaders[5][1], sectionHeaders[5][0]);
         for (int i=0; i < s3.length; i++){
-            Speaker s = speakerList.get(s3[i]);
+            s = speakerList.get(s3[i]);
+            mAdapter.addItem(s.getSpeech(), s.getPicture());
         }
 
 
         lv.setAdapter(mAdapter);
+        lv.setEnabled(false);
 
         // Inflate the layout for this fragment
 
