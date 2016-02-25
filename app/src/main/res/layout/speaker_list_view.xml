@@ -8,7 +8,8 @@
     <com.android.volley.toolbox.NetworkImageView
         android:id="@+id/speakerImageView"
         android:layout_width="100dp"
-        android:layout_height="100dp" />
+        android:layout_height="100dp"
+        android:src="@drawable/abd"/>
 
     <LinearLayout
         android:orientation="vertical"

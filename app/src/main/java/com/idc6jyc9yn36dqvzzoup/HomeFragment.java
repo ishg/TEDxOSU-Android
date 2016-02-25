@@ -111,6 +111,11 @@ public class HomeFragment extends Fragment{
             }
         });
 
+        //TODO: Livestream Button
+        //TODO: Information about Regristration
+        //TODO: Map
+        //TODO: Add twitter stream
+
         return rootView;
     }
 

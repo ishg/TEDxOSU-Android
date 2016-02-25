@@ -22,7 +22,8 @@
             android:id="@+id/speakerImage"
             android:layout_height="wrap_content"
             android:paddingTop="40dp"
-            android:adjustViewBounds="true" />
+            android:adjustViewBounds="true"
+            android:src="@drawable/abd"/>
 
         <TextView
             android:layout_width="wrap_content"

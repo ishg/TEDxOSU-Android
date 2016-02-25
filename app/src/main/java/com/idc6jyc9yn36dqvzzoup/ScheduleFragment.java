@@ -98,7 +98,7 @@ public class ScheduleFragment extends Fragment {
 
 
         lv.setAdapter(mAdapter);
-        lv.setEnabled(false);
+        //lv.setEnabled(false);
 
         // Inflate the layout for this fragment
 

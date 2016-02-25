@@ -83,6 +83,10 @@ public class SpeakersFragment extends Fragment {
 
         // Inflate the layout for this fragment
 
+        //TODO: Check for internet conection, otherwise show default image
+        //TODO: Show loading icon while loading image
+
+
         return rootView;
     }
 
