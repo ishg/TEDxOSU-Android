@@ -1,12 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
-
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="100dp"
     android:orientation="horizontal" >
 
     <com.android.volley.toolbox.NetworkImageView
-        android:id="@+id/speakerImageView"
+        android:id="@+id/scheduleImageView"
         android:layout_width="100dp"
         android:layout_height="100dp" />
 
@@ -14,7 +13,7 @@
         android:orientation="vertical"
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
-        android:paddingTop="10dp"
+        android:gravity="center_vertical"
         android:paddingLeft="10dp"
         android:paddingRight="10dp">
 
@@ -23,21 +22,10 @@
             android:layout_height="wrap_content"
             android:textAppearance="?android:attr/textAppearanceLarge"
             android:text="Large Text"
-            android:id="@+id/speakerNameTextView"
-            android:scrollHorizontally="true"
-            android:ellipsize="end"
-            android:maxLines="1" />
-
-        <TextView
-            xmlns:android="http://schemas.android.com/apk/res/android"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textAppearance="?android:attr/textAppearanceMedium"
-            android:text="Medium Text"
-            android:id="@+id/speakerTitleTextView"
-            android:scrollHorizontally="true"
-            android:ellipsize="end"
-            android:maxLines="1" />
+            android:textStyle="italic"
+            android:id="@+id/speechTitle"
+            android:maxLines="3"
+            android:textColor="#757575" />
 
     </LinearLayout>
 

@@ -7,6 +7,11 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.TextView;
 
+import com.android.volley.toolbox.ImageLoader;
+import com.android.volley.toolbox.NetworkImageView;
+
+import org.w3c.dom.Text;
+
 import java.util.ArrayList;
 import java.util.TreeSet;
 
@@ -14,8 +19,12 @@ class ScheduleListAdapter extends BaseAdapter {
 
     private static final int TYPE_ITEM = 0;
     private static final int TYPE_SEPARATOR = 1;
+    ImageLoader imageLoader = AppController.getInstance().getImageLoader();
 
-    private ArrayList<String> mData = new ArrayList<String>();
+    TextView textView, timeView;
+    NetworkImageView imageView;
+
+    private ArrayList<Pair<String,String>> mData = new ArrayList<Pair<String,String>>();
     private TreeSet<Integer> sectionHeader = new TreeSet<Integer>();
 
     private LayoutInflater mInflater;
@@ -25,13 +34,13 @@ class ScheduleListAdapter extends BaseAdapter {
                 .getSystemService(Context.LAYOUT_INFLATER_SERVICE);
     }
 
-    public void addItem(final String item) {
-        mData.add(item);
+    public void addItem(final String text, final String image) {
+        mData.add(new Pair<String, String>(text,image));
         notifyDataSetChanged();
     }
 
-    public void addSectionHeaderItem(final String item) {
-        mData.add(item);
+    public void addSectionHeaderItem(final String text, final String time) {
+        mData.add(new Pair<String,String>(text,time));
         sectionHeader.add(mData.size() - 1);
         notifyDataSetChanged();
     }
@@ -52,7 +61,7 @@ class ScheduleListAdapter extends BaseAdapter {
     }
 
     @Override
-    public String getItem(int position) {
+    public Pair getItem(int position) {
         return mData.get(position);
     }
 
@@ -62,26 +71,34 @@ class ScheduleListAdapter extends BaseAdapter {
     }
 
     public View getView(int position, View convertView, ViewGroup parent) {
-        ViewHolder holder = null;
+
+        if (imageLoader == null)
+            imageLoader = AppController.getInstance().getImageLoader();
+
         int rowType = getItemViewType(position);
 
-        if (convertView == null) {
-            holder = new ViewHolder();
-            switch (rowType) {
-                case TYPE_ITEM:
-                    convertView = mInflater.inflate(R.layout.team_member_list_view, null);
-                    holder.textView = (TextView) convertView.findViewById(R.id.teamMember);
-                    break;
-                case TYPE_SEPARATOR:
-                    convertView = mInflater.inflate(R.layout.team_header_list_view, null);
-                    holder.textView = (TextView) convertView.findViewById(R.id.teamHeader);
-                    break;
-            }
-            convertView.setTag(holder);
-        } else {
-            holder = (ViewHolder) convertView.getTag();
+        switch (rowType) {
+            case TYPE_ITEM:
+                convertView = mInflater.inflate(R.layout.schedule_member_list_view, null);
+
+                textView = (TextView) convertView.findViewById(R.id.speechTitle);
+                imageView = (NetworkImageView) convertView.findViewById(R.id.scheduleImageView);
+
+                textView.setText(mData.get(position).getL());
+                imageView.setImageUrl(mData.get(position).getR(), imageLoader);
+
+                break;
+            case TYPE_SEPARATOR:
+                convertView = mInflater.inflate(R.layout.schedule_header_list_view, null);
+
+                textView = (TextView) convertView.findViewById(R.id.scheduleHeaderTitle);
+                timeView = (TextView) convertView.findViewById(R.id.scheduleHeaderTime);
+
+                textView.setText(mData.get(position).getL());
+                timeView.setText(mData.get(position).getR());
+
+                break;
         }
-        holder.textView.setText(mData.get(position));
 
         return convertView;
     }

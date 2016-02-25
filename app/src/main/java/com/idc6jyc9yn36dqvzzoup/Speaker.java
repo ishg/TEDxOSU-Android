@@ -8,7 +8,7 @@ import java.util.ArrayList;
 
 public class Speaker {
 
-    private String id;
+    private int id;
     private String name;
     private String title;
     private String picture;
@@ -35,11 +35,16 @@ public class Speaker {
         return this.speech;
     }
 
+    public int getId(){
+        return this.id;
+    }
+
     // Single object constructor
-    public static Speaker fromJson(JSONObject jsonObject) {
+    public static Speaker fromJson(JSONObject jsonObject, int id) {
         Speaker s = new Speaker();
         // Deserialize json into object fields
         try {
+            s.id = id;
             s.name = jsonObject.getString("name");
             s.title = jsonObject.getString("title");
             s.picture = jsonObject.getString("picture");
@@ -67,7 +72,7 @@ public class Speaker {
                 continue;
             }
 
-            Speaker speaker = Speaker.fromJson(speakerJson);
+            Speaker speaker = Speaker.fromJson(speakerJson, i);
             if (speaker != null) {
                 businesses.add(speaker);
             }

@@ -13,9 +13,7 @@ import com.android.volley.toolbox.NetworkImageView;
 
 import java.util.List;
 
-/**
- * Created by ishmeet on 2/21/16.
- */
+
 public class CustomListAdapter extends BaseAdapter {
     private Activity activity;
     private LayoutInflater inflater;
@@ -51,8 +49,6 @@ public class CustomListAdapter extends BaseAdapter {
         if (convertView == null)
             convertView = inflater.inflate(R.layout.speaker_list_view, null);
 
-        if (imageLoader == null)
-            imageLoader = AppController.getInstance().getImageLoader();
 
         NetworkImageView thumbNail = (NetworkImageView) convertView
                 .findViewById(R.id.speakerImageView);
@@ -70,7 +66,7 @@ public class CustomListAdapter extends BaseAdapter {
         // title
         title.setText(s.getTitle());
 
-        // rating
+        // name
         name.setText(s.getName());
 
         return convertView;
