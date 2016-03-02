@@ -13,7 +13,8 @@
         android:theme="@style/AppTheme">
         <activity
             android:name=".MainActivity"
-            android:theme="@style/AppTheme.NoActionBar">
+            android:theme="@style/AppTheme.NoActionBar"
+            android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -24,7 +25,19 @@
             android:name=".SpeakerDetailActivity"
             android:label="@string/title_activity_speaker_detail"
             android:parentActivityName=".MainActivity"
-            android:theme="@style/AppTheme.NoActionBar">
+            android:theme="@style/AppTheme.NoActionBar"
+            android:screenOrientation="portrait">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.idc6jyc9yn36dqvzzoup.MainActivity" />
+        </activity>
+        <activity
+            android:name=".LivestreamActivity"
+            android:label="Event Livestream"
+            android:parentActivityName=".MainActivity"
+            android:hardwareAccelerated="true"
+            android:screenOrientation="landscape"
+            android:theme="@style/AppTheme.NoActionBar.FullScreen">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.idc6jyc9yn36dqvzzoup.MainActivity" />

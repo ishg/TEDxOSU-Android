@@ -17,6 +17,7 @@ public class HomeFragment extends Fragment{
     private String locationDesc = "1871 N High St, Columbus, OH";
     private String timeLabel = "Saturday, March 5th, 2016";
     private String timeDesc = "11 AM to 6 PM";
+    private String parkInfo = "Doors open in the Ohio Union Archie Griffin Ballroom East at 11:00AM for check-in and a pre-event reception (with refreshments). You are required to check-in at the Ohio Union. The first 500 audience members who check-in will receive a surprise gift!\n\nFor those who are driving to campus, parking is available in the Ohio Union parking garages. The Ohio Union South Garage is preferred. Wheel-chair Accessible Parking is located in front of Mershon Auditorium and in both Ohio Union Garages. Please check with CampusParc for rates.";
     Context context;
     Intent intent;
 
@@ -43,6 +44,8 @@ public class HomeFragment extends Fragment{
         ((TextView) rootView.findViewById(R.id.locationDescText)).setText(locationDesc);
         ((TextView) rootView.findViewById(R.id.timeLabelText)).setText(timeLabel);
         ((TextView) rootView.findViewById(R.id.timeDescText)).setText(timeDesc);
+        ((TextView) rootView.findViewById(R.id.parkingInformation)).setText(parkInfo);
+
 
         // Set Onclick Listeners for the Social Buttons and Google Maps
 
@@ -111,10 +114,12 @@ public class HomeFragment extends Fragment{
             }
         });
 
-        //TODO: Livestream Button
-        //TODO: Information about Regristration
-        //TODO: Map
-        //TODO: Add twitter stream
+        rootView.findViewById(R.id.livestreamButton).setOnClickListener(new View.OnClickListener(){
+            public void onClick(View v){
+                intent = new Intent(getActivity(), LivestreamActivity.class);
+                startActivity(intent);
+            }
+        });
 
         return rootView;
     }
