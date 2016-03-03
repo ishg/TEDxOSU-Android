@@ -29,11 +29,6 @@ public class SpeakerDetailActivity extends AppCompatActivity {
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         setTitle("Speakers");
 
-        pDialog = new ProgressDialog(this);
-        // Showing progress dialog before making http request
-        pDialog.setMessage("Loading...");
-        pDialog.show();
-
         Intent intent = this.getIntent();
         if (intent != null && intent.hasExtra("speaker")){
             String[] s = intent.getStringArrayExtra("speaker");
@@ -42,11 +37,12 @@ public class SpeakerDetailActivity extends AppCompatActivity {
             ((TextView) findViewById(R.id.speakerName)).setText(s[0]);
             ((TextView) findViewById(R.id.speakerTitle)).setText(s[1]);
             ((TextView) findViewById(R.id.speakerBio)).setText(s[3]);
-            ((NetworkImageView) findViewById(R.id.speakerImage)).setImageUrl(s[2], imageLoader);
-
-            pDialog.hide();
+            final NetworkImageView imageView = (NetworkImageView) findViewById(R.id.speakerImage);
+            imageView.setImageUrl(s[2], imageLoader);
 
         }
     }
+
+
 
 }

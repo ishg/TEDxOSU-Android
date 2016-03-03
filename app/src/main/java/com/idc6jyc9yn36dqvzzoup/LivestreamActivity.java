@@ -48,6 +48,8 @@ public class LivestreamActivity extends AppCompatActivity {
             }
         });
 
+        webView.setWebContentsDebuggingEnabled(false);
+
         WebSettings webSettings = webView.getSettings();
         webSettings.setJavaScriptEnabled(true);
         webView.loadData(frameVideo, "text/html", "utf-8");

@@ -8,9 +8,10 @@ android {
         applicationId "com.idc6jyc9yn36dqvzzoup"
         minSdkVersion 15
         targetSdkVersion 23
-        versionCode 1
-        versionName "1.0"
+        versionCode 49
+        versionName "1.1"
     }
+
     buildTypes {
         release {
             minifyEnabled false
