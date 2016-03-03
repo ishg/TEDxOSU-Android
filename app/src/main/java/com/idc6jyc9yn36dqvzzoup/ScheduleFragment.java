@@ -26,7 +26,7 @@ public class ScheduleFragment extends Fragment {
             {"11:00 AM", "Event Registration"},
             {"1:00 PM","Session One"},
             {"2:20 PM","Break One"},
-            {"3:0 PM","Session Two"},
+            {"3:00 PM","Session Two"},
             {"4:05 PM","Break Two"},
             {"4:45 PM","Session Three"}
     };

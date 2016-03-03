@@ -1,6 +1,7 @@
 package com.idc6jyc9yn36dqvzzoup;
 
 import android.content.Intent;
+import android.graphics.Color;
 import android.net.Uri;
 import android.support.v4.app.Fragment;
 import android.os.Bundle;
@@ -8,6 +9,8 @@ import android.text.TextDirectionHeuristic;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageButton;
+import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.TextView;
 
@@ -19,7 +22,7 @@ public class AboutFragment extends Fragment {
     String aboutTEDxText = "In the spirit of ideas worth spreading, TEDx is a program of local, self-organized events that bring people together to share a TED-like experience.";
 
     String[] sectionHeaders = new String[]{
-            "Executive Board","Communications Committee", "Logistics Committee", "Community Engagement", "Design Committee", "Finance Committee", "Content Committee", "Marketing Committee", "Advisors"
+            "Executive Board", "Communications Committee", "Logistics Committee", "Community Engagement", "Design Committee", "Finance Committee", "Content Committee", "Marketing Committee", "Advisors"
     };
 
     String[][] members = new String[][]{
@@ -111,8 +114,45 @@ public class AboutFragment extends Fragment {
             }
     };
 
+    int[] sponsorImages = new int[]{
+        R.drawable.sponsor_ares,
+        R.drawable.sponsor_baronfig,
+        R.drawable.sponsor_bartha,
+        R.drawable.sponsor_crimson,
+        R.drawable.sponsor_dlcouch,
+        R.drawable.sponsor_interface,
+        R.drawable.sponsor_kind,
+        R.drawable.sponsor_king,
+        R.drawable.sponsor_maharam,
+        R.drawable.sponsor_panera,
+        R.drawable.sponsor_reckon,
+        R.drawable.sponsor_unofficialcardboard,
+        R.drawable.sponsor_wexarts,
+        R.drawable.sponsor_wosu
+
+    };
+
+    String[] sponsorLinks = new String[]{
+        "https://areswear.com/",
+        "http://www.baronfig.com/",
+        "http://bartha.com/",
+        "http://www.crimsoncup.com/",
+        "http://www.dlcouch.com/",
+        "http://www.interface.com/US/en-US/homepage",
+        "http://www.kindsnacks.com/",
+        "http://www.kbiinc.com/",
+        "http://maharam.com/",
+        "https://www.panerabread.com/en-us/home.html",
+        "http://www.reckonreclaimed.com/",
+        "http://www.unofficialcardboard.com/",
+        "http://www.wexarts.org/",
+        "http://wosu.org/"
+    };
+
 
     private TeamListAdapter mAdapter;
+
+    Intent intent;
 
     public AboutFragment() {
         // Required empty public constructor
@@ -138,7 +178,7 @@ public class AboutFragment extends Fragment {
             @Override
             public void onClick(View v) {
 
-                Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse("http://www.ishmeetgrewal.com"));
+                intent = new Intent(Intent.ACTION_VIEW, Uri.parse("http://www.ishmeetgrewal.com"));
                 startActivity(intent);
             }
         });
@@ -147,7 +187,7 @@ public class AboutFragment extends Fragment {
             @Override
             public void onClick(View v) {
 
-                Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse("http://www.ted.com"));
+                intent = new Intent(Intent.ACTION_VIEW, Uri.parse("http://www.ted.com"));
                 startActivity(intent);
             }
         });
@@ -156,10 +196,38 @@ public class AboutFragment extends Fragment {
             @Override
             public void onClick(View v) {
 
-                Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse("http://www.ted.com/about/programs-initiatives/tedx-program"));
+                intent = new Intent(Intent.ACTION_VIEW, Uri.parse("http://www.ted.com/about/programs-initiatives/tedx-program"));
                 startActivity(intent);
             }
         });
+
+        rootView.findViewById(R.id.sponsorOsuImage).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                intent = new Intent(Intent.ACTION_VIEW, Uri.parse("http://www.osu.edu"));
+                startActivity(intent);
+            }
+        });
+
+        rootView.findViewById(R.id.sponsorKanodiaImage).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                intent = new Intent(Intent.ACTION_VIEW, Uri.parse("http://kanodiamd.com/"));
+                startActivity(intent);
+            }
+        });
+
+        rootView.findViewById(R.id.sponsorEvolucixImage).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                intent = new Intent(Intent.ACTION_VIEW, Uri.parse("http://www.evolucix.com/"));
+                startActivity(intent);
+            }
+        });
+
 
         ListView lv = (ListView) rootView.findViewById(R.id.listview_team);
 
@@ -178,7 +246,40 @@ public class AboutFragment extends Fragment {
         lv.setAdapter(mAdapter);
 
 
+        //Add Sponsor Image Views
+        LinearLayout sponsorLayout = (LinearLayout) rootView.findViewById(R.id.sponsorScrollLayout);
+
+        ImageButton[] sponsorButtons = new ImageButton[14];
+
+        for (int i=0; i<sponsorImages.length; i++){
+            sponsorButtons[i] = new ImageButton(getContext());
+            sponsorButtons[i].setImageResource(sponsorImages[i]);
+            sponsorButtons[i].setOnClickListener(SponsorClickListener);
+            sponsorButtons[i].setBackgroundColor(Color.TRANSPARENT);
+            sponsorButtons[i].setMaxHeight(100);
+            sponsorButtons[i].setPadding(0,0,40,0);
+            sponsorButtons[i].setAdjustViewBounds(true);
+            sponsorButtons[i].setTag(i);
+            sponsorButtons[i].setId(i);
+
+
+            sponsorLayout.addView(sponsorButtons[i]);
+        }
+
+
+
 
         return rootView;
     }
+
+
+    private View.OnClickListener SponsorClickListener = new View.OnClickListener() {
+        @Override
+        public void onClick(View v) {
+            int selected_item = (Integer) v.getTag();
+            System.out.println(selected_item);
+            intent = new Intent(Intent.ACTION_VIEW, Uri.parse(sponsorLinks[selected_item]));
+            startActivity(intent);
+        }
+    };
 }
