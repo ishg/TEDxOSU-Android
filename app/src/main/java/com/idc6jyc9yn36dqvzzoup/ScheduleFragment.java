@@ -26,9 +26,9 @@ public class ScheduleFragment extends Fragment {
             {"11:00 AM", "Event Registration"},
             {"1:00 PM","Session One"},
             {"2:20 PM","Break One"},
-            {"3:05 PM","Session Two"},
+            {"3:0 PM","Session Two"},
             {"4:05 PM","Break Two"},
-            {"4:50 PM","Session Three"}
+            {"4:45 PM","Session Three"}
     };
 
     Speaker[] session1, session2, session3;
@@ -100,7 +100,8 @@ public class ScheduleFragment extends Fragment {
         lv.setAdapter(mAdapter);
         //lv.setEnabled(false);
 
-        // Inflate the layout for this fragment
+        //TODO: Sponsors
+
 
         return rootView;
     }
